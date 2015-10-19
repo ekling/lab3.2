@@ -14,5 +14,5 @@ runcmd:
     - cd /home/ubuntu/lab3
     - git checkout part2
     - pip install -r requirements.txt
-    - brokerip
+    - export BROKER_IP="130.238.29.25"
     - sudo -H -u ubuntu bash -c "celery worker -A parse &"
