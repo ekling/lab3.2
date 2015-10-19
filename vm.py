@@ -42,9 +42,9 @@ ins.add_floating_ip(floating_ip)
 ### MODIFY WORKERDATA FILE ###
 float_ip = 'export BROKER_IP="' + str(floating_ip) + '"'
 
-with open('workerdata.yml', 'r') as file:
+with open('workerdata_init.yml', 'r') as file:
     f = file.read()
-f_updated = f.replace('BROKER_IP', float_ip)
+f_updated = f.replace('brokerip', float_ip)
 
 with open('workerdata.yml', 'wb') as file:
     file.write(f_updated)
