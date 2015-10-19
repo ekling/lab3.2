@@ -1,0 +1,18 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+    - git
+    - python-pip
+    - rabbitmq-server
+    - python-swiftclient
+
+runcmd:
+    - git clone https://github.com/ekling/lab3.git /home/ubuntu/lab3
+    - cd /home/ubuntu/lab3
+    - git checkout part2
+    - pip install -r requirements.txt
+    - export export export BROKER_IP="130.238.29.25"="130.238.29.25"="130.238.29.25"
+    - sudo -H -u ubuntu bash -c "celery worker -A parse &"
