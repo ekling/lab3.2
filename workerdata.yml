@@ -10,9 +10,8 @@ packages:
     - python-swiftclient
 
 runcmd:
-    - git clone https://github.com/ekling/lab3.git /home/ubuntu/lab3
-    - cd /home/ubuntu/lab3
-    - git checkout part2
+    - git clone https://github.com/ekling/lab3.2.git /home/ubuntu/lab3.2
+    - cd /home/ubuntu/lab3.2
     - pip install -r requirements.txt
     - export BROKER_IP="130.238.29.25"
     - sudo -H -u ubuntu bash -c "celery worker -A parse &"

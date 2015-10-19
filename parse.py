@@ -1,4 +1,5 @@
 import json
+import os
 from celery import Celery
 
 app.config['CELERY_BROKER_URL'] = 'amqp://worker:password@{}:5672/host'.format(os.environ['BROKER_IP'])
