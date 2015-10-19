@@ -15,7 +15,7 @@ def counter(word, dic):
 @celery.task()
 def parse(tweets):
     name = 'curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/' + tweets
-    subprocess.call(name, shell=True)
+    subprocess.check_call(name, shell=True)
     dic = {'han': 0, 'hon': 0, 'den': 0, 'det': 0,
             'denna': 0, 'denne': 0, 'hen': 0}
 
