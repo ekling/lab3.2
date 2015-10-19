@@ -10,16 +10,32 @@ packages:
     - python-swiftclient
 
 runcmd:
-    - git clone https://github.com/ekling/lab3.2.git /home/ubuntu/lab3.2
+    - sudo git clone https://github.com/ekling/lab3.2.git /home/ubuntu/lab3.2
     - cd /home/ubuntu/lab3.2
-    - pip install -r requirements.txt
+    - sudo pip install -r requirements.txt
     - sudo pip install flower
     - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_0.txt
     - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_1.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_2.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_3.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_4.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_5.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_6.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_7.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_8.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_9.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_10.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_11.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_12.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_13.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_14.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_15.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_16.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_17.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_18.txt
+    - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_19.txt
     - rabbitmqctl add_user worker pw
     - rabbitmqctl add_vhost host
     - rabbitmqctl set_permissions -p host worker ".*" ".*" ".*"
-    - export C_FORCE_ROOT="true"
-    - export BROKER_IP="0.0.0.0"
     - sudo -H -u ubuntu bash -c "python controller.py &"
     - sudo -H -u ubuntu bash -c "celery flower -A parse &"
