@@ -2,7 +2,7 @@ import json
 import os
 from celery import Celery
 
-celery = Celery('parse', broker='amqp://worker:pw@{}:5672/host'.format(os.environ['BROKER_IP']), backend='amqp')
+celery = Celery('parse', broker='amqp://worker:pw@130.238.29.173:5672/host', backend='amqp')
 
 def counter(word, dic):
     keys = dic.keys()
