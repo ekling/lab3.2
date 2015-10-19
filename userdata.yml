@@ -18,7 +18,7 @@ runcmd:
     - curl -O http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_1.txt
     - rabbitmqctl add_user worker pw
     - rabbitmqctl add_vhost host
-    - rabbitmqctl set_permissions -p host controller ".*" ".*" ".*"
+    - rabbitmqctl set_permissions -p host worker ".*" ".*" ".*"
     - export C_FORCE_ROOT="true"
     - export BROKER_IP="0.0.0.0"
     - sudo -H -u ubuntu bash -c "python controller.py &"
