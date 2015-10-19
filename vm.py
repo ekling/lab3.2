@@ -40,7 +40,7 @@ ins = nc.servers.find(name='EmilBroker')
 ins.add_floating_ip(floating_ip)
 
 ### MODIFY WORKERDATA FILE ###
-float_ip = 'export BROKER_IP="' + str(floating_ip) + '"'
+float_ip = 'export BROKER_IP=' + str(floating_ip)
 
 with open('workerdata_init.yml', 'r') as file:
     f = file.read()
