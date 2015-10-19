@@ -39,6 +39,7 @@ for ip in ips:
 ins = nc.servers.find(name='EmilBroker')
 ins.add_floating_ip(floating_ip)
 
+
 ### MODIFY WORKERDATA FILE ###
 float_ip = 'export BROKER_IP=' + str(floating_ip)
 
@@ -62,7 +63,7 @@ for i in range(0,NUMBER_OF_WORKERS):
         instance = nc.servers.get(instance.id)
         status = instance.status
 
-        ips = nc.floating_ips.list()
+    ips = nc.floating_ips.list()
     for ip in ips:
         if ((getattr(ip, 'instance_id')) == None):
                 floating_ip = getattr(ip, 'ip')

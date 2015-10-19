@@ -1,7 +1,7 @@
 import time
 from parse import parse
 from celery import group, subtask
-from flask import jsonify
+from flask import jsonify, Flask
 from collections import Counter
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def count_tweets():
 
-    queue = [parse.s('tweets_{}.txt'.format(x)) for x in xrange(0,20)]
+    queue = [parse.s('tweets_{}.txt'.format(x)) for x in xrange(0,2)]
     g = group(queue)
 
     res = g()
