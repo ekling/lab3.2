@@ -50,7 +50,7 @@ def init_broker():
 
     with open('workerdata.yml', 'wb') as file:
         file.write(f_updated)
-def init_worker(i)
+def init_worker(i):
 ### INITIATE WORKER(S) ###
     workerdata = open('workerdata.yml', 'r')
 
