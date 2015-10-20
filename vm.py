@@ -42,7 +42,7 @@ def init_broker():
 
 
     ### MODIFY WORKERDATA FILE ###
-    float_ip = 'export BROKER_IP=' + str(floating_ip)
+    float_ip = 'export BROKER_IP="' + str(floating_ip) + '"'
 
     with open('workerdata_init.yml', 'r') as file:
         f = file.read()

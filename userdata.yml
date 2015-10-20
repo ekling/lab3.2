@@ -17,6 +17,6 @@ runcmd:
     - rabbitmqctl add_user worker pw
     - rabbitmqctl add_vhost host
     - rabbitmqctl set_permissions -p host worker ".*" ".*" ".*"
-    - export "0.0.0.0"
+    - export BROKER_IP="0.0.0.0"
     - sudo -H -u ubuntu bash -c "python controller.py &"
     - sudo -H -u ubuntu bash -c "celery flower -A parse &"
