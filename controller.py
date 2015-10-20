@@ -9,6 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def count_tweets():
 
+    time_start = time.time()
     queue = [parse.s('tweets_{}.txt'.format(x)) for x in xrange(0,20)]
     g = group(queue)
 
@@ -22,7 +23,10 @@ def count_tweets():
     for dic in dicts:
         counter.update(dic)
 
-    return jsonify(dict(counter)), 200
+    time_end = time.time()
+    elapsed_time = time_end - time_start
+
+    return jsonify(dict(counter)), elapsed_time, 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

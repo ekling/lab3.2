@@ -3,7 +3,7 @@ import time
 import fileinput
 from novaclient.client import Client
 
-NUMBER_OF_WORKERS = 2
+NUMBER_OF_WORKERS = input('Number of workers: ')
 
 config = {'username':os.environ['OS_USERNAME'],
           'api_key':os.environ['OS_PASSWORD'],
@@ -56,6 +56,7 @@ def init_worker(i):
 
     instance = nc.servers.create(name='EmilWorker_' + str(i), image=ubuntu_image, flavor=
                                 flavor, key_name='emilKey', userdata=workerdata)
+    '''
     status = instance.status
     while status == 'BUILD':
         print 'Worker_' + str(i) + ' is building...'
@@ -71,7 +72,7 @@ def init_worker(i):
 
     ins = nc.servers.find(name='EmilWorker_' + str(i))
     ins.add_floating_ip(floating_ip)
-
+    '''
     workerdata.close()
 
 init_broker()

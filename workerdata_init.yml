@@ -15,4 +15,4 @@ runcmd:
     - pip install -r requirements.txt
     - export C_FORCE_ROOT="true"
     - brokerip
-    - sudo -H -u ubuntu bash -c "celery worker -A parse &"
+    - celery worker -A parse &
