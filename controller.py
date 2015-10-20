@@ -25,8 +25,12 @@ def count_tweets():
 
     time_end = time.time()
     elapsed_time = time_end - time_start
+    d = dict(counter)
+    time = {'Elapsed Time:' : elapsed_time}
+    d.update(time)
 
-    return jsonify(dict(counter).update({'Elapsed Time' : elapsed_time}), 200
+
+    return jsonify(d), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
